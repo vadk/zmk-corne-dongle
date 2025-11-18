@@ -34,6 +34,16 @@
             #binding-cells = <0>;
             bindings = <&kp LEFT_SHIFT>, <&kp CAPS>;
         };
+
+        hrm: hrm {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HRM";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "balanced";
+        };
     };
 
     rgb_encoder: rgb_encoder {
@@ -56,10 +66,10 @@
         default_layer {
             display-name = "QWERTY";
             bindings = <
-&kp ESCAPE      &kp Q  &kp W  &kp E     &kp R  &kp T                               &kp UP                &kp Y        &kp U  &kp I          &kp O    &kp P     &kp RIGHT_BRACKET
-&kp TAB         &kp A  &kp S  &kp D     &kp F  &kp G                     &kp LEFT  &kp ENTER  &kp RIGHT  &kp H        &kp J  &kp K          &kp L    &kp SEMI  &kp SQT
-&kp LEFT_SHIFT  &kp Z  &kp X  &kp C     &kp V  &kp B        &kp SPACE              &kp DOWN              &kp N        &kp M  &kp COMMA      &kp DOT  &kp FSLH  &kp RIGHT_BRACKET
-                              &kp LGUI  &mo 1  &lt 3 SPACE                                               &lt 3 ENTER  &mo 2  &kp BACKSPACE
+&kp ESCAPE  &kp Q            &kp W            &kp E         &kp R              &kp T                               &kp UP                &kp Y      &kp U               &kp I                 &kp O             &kp P                &kp LEFT_BRACKET
+&kp TAB     &hrm LEFT_WIN A  &hrm LEFT_ALT S  &hrm LCTRL D  &hrm LEFT_SHIFT F  &kp G                     &kp LEFT  &kp ENTER  &kp RIGHT  &kp H      &hrm RIGHT_SHIFT J  &hrm RIGHT_CONTROL K  &hrm RIGHT_ALT L  &hrm RIGHT_WIN SEMI  &kp SQT
+&kp LALT    &kp Z            &kp X            &kp C         &kp V              &kp B        &kp SPACE              &kp DOWN              &kp N      &kp M               &kp COMMA             &kp DOT           &kp FSLH             &kp RIGHT_BRACKET
+                                              &kp LGUI      &mo 1              &lt 3 SPACE                                               &lt 3 RET  &lt 2 BACKSPACE     &kp DEL
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
